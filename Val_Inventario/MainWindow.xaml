@@ -1,0 +1,111 @@
+﻿<Window x:Class="Val_Inventario.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Val_Inventario"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="700">
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="#E0E0FF" />
+        </Style>
+    </Window.Style>
+    <Grid>
+        <TabControl>
+            <!-- Primer pestaña del tab control -->
+            <TabItem Header="Transacción">
+                <!-- Contenido de la pestaña "Transacción" -->
+                <Grid RenderTransformOrigin="0.471,0.343">
+
+                    <Label Content="Inventario" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0" FontSize="18"  FontFamily="Bold" Grid.ColumnSpan="2" />
+
+                    <Button Content="Nuevo" Click="Nuevo_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,33,31,0" RenderTransformOrigin="0.346,1.191" Height="32" Width="66" Grid.Column="1">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="White" />
+                                <Setter Property="FontFamily" Value="Arial" />
+                                <Setter Property="FontSize" Value="14" />
+                                <Setter Property="Padding" Value="4" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Label x:Name="lblDisponible" Content="Disponible: 0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,141,4,0" Width="112" Height="94" Grid.Column="1" />
+
+                    <Button Content="ELIMINAR" Click="Eliminar_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,52" Width="100" Grid.Column="1"/>
+
+                    <Button Content="MODIFICAR" Click="Modificar_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,101" Width="100" Grid.Column="1"/>
+
+                    <Button Content="ENVIAR" Click="Enviar_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,14" Width="100" Grid.Column="1"/>
+
+
+
+                    <Rectangle Fill="LightGray" Height="17" VerticalAlignment="Top" Margin="0,41,131,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+
+                    <!-- Lista de elementos (ListView) -->
+                    <ListView Name="listView" Margin="6,52,131,10" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <!-- Definición de columnas para la lista -->
+                            <GridView>
+                                <GridViewColumn Header="Nº Registro" Width="112" DisplayMemberBinding="{Binding NumeroRegistro}" />
+                                <GridViewColumn Header="Movimiento" Width="100" DisplayMemberBinding="{Binding Movimiento}" />
+                                <GridViewColumn Header="Precio" Width="112" DisplayMemberBinding="{Binding Precio}" />
+                                <GridViewColumn Header="Cantidad" Width="112" DisplayMemberBinding="{Binding Cantidad}" />
+                                <GridViewColumn Header="Fecha" Width="112" DisplayMemberBinding="{Binding Fecha}" />
+                                <GridViewColumn Header="Total" Width="112" DisplayMemberBinding="{Binding Total}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+
+            <!-- Pestaña 2 -->
+            <TabItem Header="Existencias">
+                <Grid RenderTransformOrigin="0.471,0.343">
+                    <Label x:Name="lblSaldoCantidad" Content="Saldo Cantidad: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,309,0,0" Width="200" />
+
+                    <ListView Name="listViewExistencias" Margin="16,22,16,57">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="BorderThickness" Value="1" />
+                                <Setter Property="BorderBrush" Value="LightGray" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Fecha" Width="60" DisplayMemberBinding="{Binding FechaPeps}" />
+                                <GridViewColumn Header="Concepto" Width="60" DisplayMemberBinding="{Binding ConceptoPeps}" />
+                                <GridViewColumn Header="Q Entrada" Width="60" DisplayMemberBinding="{Binding CantidadEntradaPeps}" />
+                                <GridViewColumn Header="VU Entrada" Width="60" DisplayMemberBinding="{Binding ValorUnitarioEntradaPeps}" />
+                                <GridViewColumn Header="VT Entrada" Width="60" DisplayMemberBinding="{Binding TotalEntradaPeps}" />
+                                <GridViewColumn Header="Q Salida" Width="60" DisplayMemberBinding="{Binding CantidadSalidaPeps}" />
+                                <GridViewColumn Header="VU Salida" Width="60" DisplayMemberBinding="{Binding ValorUnitarioSalidaPeps}" />
+                                <GridViewColumn Header="VT Salida" Width="60" DisplayMemberBinding="{Binding TotalSalidaPeps}" />
+                                <GridViewColumn Header="Saldo Q" Width="60" DisplayMemberBinding="{Binding SaldoCantidad}" />
+                                <GridViewColumn Header="Saldo VU" Width="60" DisplayMemberBinding="{Binding SaldoPrecio}" />
+                                <GridViewColumn Header="Saldo VT" Width="60" DisplayMemberBinding="{Binding SaldoTotal}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

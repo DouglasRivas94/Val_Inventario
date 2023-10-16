@@ -1,0 +1,19 @@
+﻿<Window x:Class="Val_Inventario.ModificarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Val_Inventario"
+        mc:Ignorable="d"
+        Title=" ModificarWindow" Height="300" Width="400">
+    <Grid>
+        <Label Content="Número de Registro:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <TextBox x:Name="txtNumeroRegistroModificar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="130,10,0,0"/>
+        <Label Content="Núevo precio:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
+        <TextBox x:Name="txtNuevoPrecio" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="130,48,0,0"/>
+        <Label Content="Nueva cantidad:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,82,0,0"/>
+        <TextBox x:Name="txtNuevaCantidad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="130,86,0,0"/>
+        <Button Content="Modificar" Click="Modificar_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="26" Margin="14,124,0,0"/>
+        <Button Content="Salir" Click="Salir_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="25" Margin="200,0,0,0"/>
+    </Grid>
+</Window>
