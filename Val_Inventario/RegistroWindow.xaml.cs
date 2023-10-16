@@ -17,6 +17,7 @@ namespace Val_Inventario
 {
     public partial class RegistroWindow : Window
     {
+        private int registroCounter = 0;
         private MainWindow mainWindow;
         private double cantidadDisponible;
 
